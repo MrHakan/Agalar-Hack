@@ -1,7 +1,10 @@
 package me.mrhakan.agalarhack;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
 
+import me.mrhakan.agalarhack.commands.CommandManager;
+import me.mrhakan.agalarhack.managers.SettingsManager;
 import me.mrhakan.agalarhack.module.Module;
 import me.mrhakan.agalarhack.module.ModuleManager;
 import me.mrhakan.agalarhack.proxy.CommonProxy;
@@ -20,7 +23,13 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class Main {
 	
-	public static ModuleManager moduleManager;
+    public static final String discordid = "";
+    public static String prefix = ".";
+    
+    public static Minecraft mc = Minecraft.getMinecraft();
+    
+    public static ModuleManager moduleManager = new ModuleManager();
+    public static final SettingsManager SETTINGS_MANAGER = new SettingsManager();
 	public static Hud hud;
 	
 	@Instance
@@ -31,7 +40,7 @@ public class Main {
 	
 	@EventHandler
 	public void PreInit (FMLPreInitializationEvent event) {
-		
+		Display.setTitle(Reference.NAME + " " + Reference.VERSION);
 	}
 	
 	@EventHandler
@@ -44,7 +53,10 @@ public class Main {
 	
 	@EventHandler
 	public void PostInit (FMLPreInitializationEvent event) {
-		
+        moduleManager.loadModules();
+        CommandManager.init();
+        MinecraftForge.EVENT_BUS.register(new CommandManager());
+        MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	@SubscribeEvent

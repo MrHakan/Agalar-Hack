@@ -22,7 +22,8 @@ public class ModuleManager {
 		
 		//MOVEMENT
 		this.modules.add(new Sprint());
-		this.modules.add(new Fly());
+		this.modules.add(new Flight());
+		this.modules.add(new Jesus());
 		//RENDER
 		this.modules.add(new Fullbright());
 		//WORLD
@@ -50,5 +51,13 @@ public class ModuleManager {
 		}
 		return modules;
 	}
-	
+	 public void loadModules(){
+	        Main.SETTINGS_MANAGER.loadSettings();
+
+	        for(Module m: Main.moduleManager.getModuleList()){
+	            if((Boolean) m.settings.getSetting("enabled")){
+	                m.toggle();
+	            }
+	        }
+	 }
 }
