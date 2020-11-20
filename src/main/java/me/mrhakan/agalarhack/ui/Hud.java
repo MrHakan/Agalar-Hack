@@ -6,7 +6,6 @@ import java.util.Comparator;
 
 import me.mrhakan.agalarhack.Main;
 import me.mrhakan.agalarhack.module.Module;
-import me.mrhakan.agalarhack.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -33,7 +32,7 @@ public class Hud extends Gui {
 		}
 	}
 	
-	private final ResourceLocation watermark = new ResourceLocation(Reference.MOD_ID, "textures/watermark.png");
+	private final ResourceLocation watermark = new ResourceLocation(Main.modid, "resources/watermark.png");
 	
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent event) {
@@ -45,7 +44,7 @@ public class Hud extends Gui {
 		//client name
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
 			fr.drawString("Agalar Hack", 2, 1, 0xffffff);
-			fr.drawString(Reference.VERSION, 64, 1, 0xfffffacd);
+			fr.drawString(Main.currentvers, 64, 1, 0xfffffacd);
 		}
         //client logo
 //		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {

@@ -1,8 +1,9 @@
-package me.mrhakan.agalarhack.commands;
+package me.mrhakan.agalarhack.managers;
 
 import java.util.HashSet;
 
 import me.mrhakan.agalarhack.Main;
+import me.mrhakan.agalarhack.commands.Command;
 import me.mrhakan.agalarhack.commands.Commands.bind;
 import me.mrhakan.agalarhack.commands.Commands.toggle;
 import net.minecraftforge.client.event.ClientChatEvent;

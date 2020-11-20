@@ -1,9 +1,11 @@
-package me.mrhakan.agalarhack.module;
+package me.mrhakan.agalarhack.managers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.mrhakan.agalarhack.Main;
+import me.mrhakan.agalarhack.module.Category;
+import me.mrhakan.agalarhack.module.Module;
 import me.mrhakan.agalarhack.module.combat.*;
 import me.mrhakan.agalarhack.module.movement.*;
 import me.mrhakan.agalarhack.module.render.*;
@@ -15,18 +17,19 @@ public class ModuleManager {
 	public ModuleManager() {
 		(modules = new ArrayList<Module>()).clear();
 		//COMBAT
-		this.modules.add(new AutoCrystal());
-		//EXPLOITS
-		
+		this.modules.add(new Aura());
+		//EXPLOIT
+
 		//MISC
-		
+
 		//MOVEMENT
-		this.modules.add(new Sprint());
+		this.modules.add(new Speed());
 		this.modules.add(new Flight());
 		this.modules.add(new Jesus());
 		//RENDER
 		this.modules.add(new Fullbright());
 		//WORLD
+
 	}
 	
 	public Module getModule (String name) {
